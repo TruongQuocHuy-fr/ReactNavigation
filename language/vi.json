@@ -1,0 +1,20 @@
+{
+    "welcome": "Chào mừng",
+    "login": "Đăng nhập",
+    "select_language":"Đổi ngôn ngữ",
+    "choose_language":"Chọn ngôn ngữ",
+    "update_profile":"Thay đổi thông tin",
+    "change_language":"Đổi ngôn ngữ",
+    "sign_out":"Đăng xuất",
+    "options": "Lựa chọn",
+    "me":"Tôi",
+    "contact-screen":"Liên hệ",
+    "favorite-screen":"Yêu thích",
+    "user-screen":"Người dùng",
+    "name":"Tên",
+    "phone":"Số điện thoại",
+    "update":"Cập nhật",
+    "success":"Thành công",
+    "update-success":"Cập nhật thông tin thành công"
+  }
+  

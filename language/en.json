@@ -1,0 +1,20 @@
+{
+    "welcome": "Welcome",
+    "login": "Login",
+    "select_language":"Select language",
+    "choose_language":"Choose language",
+    "update_profile":"Update profilee",
+    "change_language":"Change language",
+    "sign_out":"Sign out",
+    "options": "Options",
+    "me":"Me",
+    "contact-screen":"Contact",
+    "favorite-screen":"Favorite",
+    "user-screen":"User",
+    "name":"Name",
+    "phone":"Phone",
+    "update":"Update",
+    "success":"Success",
+    "update-success":"User information updated successfully"
+  }
+  
