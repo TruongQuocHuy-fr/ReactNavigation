@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
 import { fetchContacts } from '../utility/api';
 import ContactListItem from '../components/ContactListitem';
-import { SafeAreaProvider  } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const keyExtractor = ({ phone }) => phone;
 
 const Contacts = ({ navigation }) => {
-  // state
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [openSwipeable, setOpenSwipeable] = useState(null); // Track the open swipeable item
 
-  // Load data
   useEffect(() => {
     setLoading(true); // Set loading to true when fetching data
     fetchContacts()
@@ -30,6 +29,13 @@ const Contacts = ({ navigation }) => {
 
   const contactsSorted = contacts.sort((a, b) => a.name.localeCompare(b.name));
 
+  const handleSwipeableOpen = (ref) => {
+    if (openSwipeable && openSwipeable !== ref) {
+      openSwipeable.close(); // Close the previously opened swipeable item
+    }
+    setOpenSwipeable(ref); // Set the new swipeable as the currently open one
+  };
+
   const renderContact = ({ item }) => {
     const { name, avatar, phone } = item;
     return (
@@ -38,12 +44,13 @@ const Contacts = ({ navigation }) => {
         avatar={avatar}
         phone={phone}
         onPress={() => navigation.navigate("Profile", { contact: item })}
+        onSwipeableOpen={handleSwipeableOpen} // Pass the function to handle swipeable state
       />
     );
   };
 
   return (
-    <SafeAreaProvider  style={styles.safeArea}>
+    <SafeAreaProvider style={styles.safeArea}>
       <View style={styles.container}>
         {loading && <ActivityIndicator color="blue" size="large" />}
         {error && <Text>Error...</Text>}
@@ -55,14 +62,13 @@ const Contacts = ({ navigation }) => {
           />
         )}
       </View>
-    </SafeAreaProvider >
+    </SafeAreaProvider>
   );
 };
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    //marginTop: 40, // Adjust this value as needed
   },
   container: {
     flex: 1,
