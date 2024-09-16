@@ -69,22 +69,21 @@ const App = () => {
       </Animated.View> */}
         <TouchableOpacity
           onPressIn={() => setSwitchNavi(!switchNavi)} // Phản hồi nhanh khi nhấn
-          style={
-            {
-              position: 'absolute',
-              zIndex: 20,
-              bottom: 100,
-              right: 30,
-              height: 50,
-              width: 50,
-              borderRadius: 50,
-              backgroundColor: 'white',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
+          style={{
+            position: 'absolute',
+            zIndex: 20,
+            top: 30, // Đặt ở góc trên
+            right: 0, // Đặt ở góc phải
+            height: 50,
+            width: 50,
+            borderRadius: 50,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
         >
-          <MaterialIcons name="change-circle" size={50} color="red" />
-        </TouchableOpacity>
+  <MaterialIcons name="refresh" size={30} color="blue" />
+</TouchableOpacity>
+
     </Provider>
   );
 };
